@@ -1,0 +1,204 @@
+/* ============================================================
+   ANIMATIONS.CSS — God-Level Keyframes & States
+   ============================================================ */
+
+/* ---- Core Keyframes ---- */
+
+@keyframes pulse-dot {
+    0%, 100% {
+        box-shadow: 0 0 0 0 var(--accent-green-glow);
+    }
+    50% {
+        box-shadow: 0 0 0 8px transparent;
+    }
+}
+
+@keyframes scroll-line {
+    0% {
+        opacity: 1;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    50% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+    51% {
+        transform-origin: bottom;
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float-orb-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -50px) scale(1.05); }
+    50% { transform: translate(-25px, -70px) scale(0.95); }
+    75% { transform: translate(45px, -25px) scale(1.03); }
+}
+
+@keyframes float-orb-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-35px, 35px) scale(1.1); }
+    66% { transform: translate(25px, -25px) scale(0.9); }
+}
+
+@keyframes float-orb-3 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-45px, 25px); }
+    50% { transform: translate(35px, 50px); }
+    75% { transform: translate(-15px, -35px); }
+}
+
+/* ---- Animation Active States ---- */
+
+.hero__orb--1 { animation: float-orb-1 14s ease-in-out infinite; }
+.hero__orb--2 { animation: float-orb-2 18s ease-in-out infinite; }
+.hero__orb--3 { animation: float-orb-3 12s ease-in-out infinite; }
+
+/* ---- GSAP Initial States ---- */
+/* Elements start invisible for GSAP to animate in */
+
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(40px);
+    will-change: transform, opacity;
+}
+
+.bento__card {
+    opacity: 0;
+    transform: translateY(25px);
+    will-change: transform, opacity;
+}
+
+.project-card {
+    opacity: 0;
+    transform: translateY(35px);
+    will-change: transform, opacity;
+}
+
+.workflow__step {
+    opacity: 0;
+    transform: translateX(-25px);
+    will-change: transform, opacity;
+}
+
+.ecosystem__domain {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+    will-change: transform, opacity;
+}
+
+.sandbox-node {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+}
+
+/* ---- Split Text Initial ---- */
+[data-split-text] .char {
+    opacity: 0;
+    transform: translateY(100%);
+    will-change: transform, opacity;
+}
+
+/* ---- Hover micro-interactions ---- */
+
+/* Smooth badge pop */
+.badge {
+    transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 250ms ease,
+                background 250ms ease;
+}
+
+/* Card border glow sweep */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--accent-green) 20%,
+        var(--accent-cyan) 50%,
+        var(--accent-purple) 80%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.project-card:hover::before { opacity: 1; }
+
+/* Bento card top highlight */
+.bento__card::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.bento__card:hover::after { opacity: 0.5; }
+
+/* ---- Loading States ---- */
+body.is-loading {
+    overflow: hidden;
+}
+
+body.is-loading * {
+    animation-play-state: paused !important;
+}
+
+/* Visible state after load */
+body.is-loaded [data-reveal],
+body.is-loaded .bento__card,
+body.is-loaded .project-card,
+body.is-loaded .workflow__step,
+body.is-loaded .ecosystem__domain,
+body.is-loaded .sandbox-node {
+    /* GSAP will handle these, but ensure visibility */
+}
+
+/* ---- Reduced Motion Overrides ---- */
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    .bento__card,
+    .project-card,
+    .workflow__step,
+    .ecosystem__domain,
+    .sandbox-node {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    [data-split-text] .char {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .hero__orb { animation: none !important; }
+    .hero__ring { animation: none !important; }
+}

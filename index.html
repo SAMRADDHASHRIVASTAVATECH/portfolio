@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Samraddha Shrivastava — Systems Orchestrator | AI Builder | Systems Architect. Building deterministic, experimental, and adaptive systems.">
+    <meta name="theme-color" content="#050505">
+    <title>Samraddha Shrivastava — Systems Orchestrator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <!-- Ambient Background Canvas -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- Grid Overlay -->
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- Vignette -->
+    <div class="vignette-overlay" aria-hidden="true"></div>
+
+    <!-- Page Loader -->
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader__inner">
+            <div class="loader__logo">
+                <span class="loader__bracket">[</span>
+                <span class="loader__text">SS</span>
+                <span class="loader__bracket">]</span>
+            </div>
+            <div class="loader__bar">
+                <div class="loader__bar-fill" id="loader-fill"></div>
+            </div>
+            <p class="loader__status" id="loader-status">Initializing Systems...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="#hero" class="nav__logo" data-magnetic>
+                <span class="nav__logo-bracket">[</span>
+                <span class="nav__logo-text">SS</span>
+                <span class="nav__logo-bracket">]</span>
+                <span class="nav__logo-ping"></span>
+            </a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+            </button>
+            <ul class="nav__list" id="nav-list">
+                <li class="nav__item"><a href="#about" class="nav__link" data-index="01" data-magnetic>Philosophy</a></li>
+                <li class="nav__item"><a href="#skills" class="nav__link" data-index="02" data-magnetic>Arsenal</a></li>
+                <li class="nav__item"><a href="#projects" class="nav__link" data-index="03" data-magnetic>Projects</a></li>
+                <li class="nav__item"><a href="#workflow" class="nav__link" data-index="04" data-magnetic>Process</a></li>
+                <li class="nav__item"><a href="#ecosystem" class="nav__link" data-index="05" data-magnetic>Ecosystem</a></li>
+                <li class="nav__item"><a href="#sandboxes" class="nav__link" data-index="06" data-magnetic>Sandboxes</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link nav__link--cta" data-index="07" data-magnetic>Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ============ HERO SECTION ============ -->
+        <section class="hero" id="hero">
+            <div class="hero__container">
+                <div class="hero__status">
+                    <span class="hero__status-dot"></span>
+                    <span class="hero__status-text">Systems Online</span>
+                    <span class="hero__status-ver">v3.1.0</span>
+                </div>
+                <h1 class="hero__title" data-reveal="hero">
+                    <span class="hero__title-line">
+                        <span class="hero__title-word" data-split-text>Systems</span>
+                    </span>
+                    <span class="hero__title-line">
+                        <span class="hero__title-word hero__title-word--accent" data-split-text>Orchestrator</span>
+                    </span>
+                </h1>
+                <div class="hero__roles">
+                    <span class="hero__role" data-split-text>AI Builder</span>
+                    <span class="hero__role-sep">◆</span>
+                    <span class="hero__role" data-split-text>Systems Architect</span>
+                </div>
+                <p class="hero__subtitle">
+                    <span class="hero__subtitle-word" data-char-reveal>Deterministic.</span>
+                    <span class="hero__subtitle-word" data-char-reveal>Experimental.</span>
+                    <span class="hero__subtitle-word" data-char-reveal>Adaptive.</span>
+                </p>
+                <div class="hero__actions">
+                    <a href="#projects" class="btn btn--primary" data-magnetic>
+                        <span class="btn__text">Explore Projects</span>
+                        <span class="btn__icon">→</span>
+                        <span class="btn__glow"></span>
+                        <span class="btn__shimmer"></span>
+                    </a>
+                    <a href="#contact" class="btn btn--secondary" data-magnetic>
+                        <span class="btn__text">Get In Touch</span>
+                        <span class="btn__icon">↗</span>
+                    </a>
+                </div>
+                <div class="hero__scroll-indicator">
+                    <div class="hero__scroll-line"></div>
+                    <span class="hero__scroll-text">Scroll</span>
+                </div>
+            </div>
+            <!-- Floating Geometry -->
+            <div class="hero__geometry" aria-hidden="true">
+                <div class="hero__orb hero__orb--1"></div>
+                <div class="hero__orb hero__orb--2"></div>
+                <div class="hero__orb hero__orb--3"></div>
+                <div class="hero__ring hero__ring--1"></div>
+                <div class="hero__ring hero__ring--2"></div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT / PHILOSOPHY SECTION ============ -->
+        <section class="about" id="about">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">01</span>
+                    <h2 class="section__title" data-split-text>Builder Philosophy</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="about__grid">
+                    <div class="about__content" data-reveal>
+                        <p class="about__lead">
+                            I don't just write code — I <em class="text-accent-green">orchestrate systems</em>. Every project is an experiment in pushing boundaries, connecting domains, and building infrastructure that <em class="text-accent-cyan">thinks</em>.
+                        </p>
+                        <p class="about__text">
+                            My approach fuses systems-level thinking with AI-augmented workflows. I treat every codebase as a living architecture — modular, observable, and designed to evolve. From container orchestration to reinforcement learning environments, I build at the intersection of <em class="text-accent-purple">engineering rigor</em> and <em class="text-accent-green">experimental curiosity</em>.
+                        </p>
+                        <p class="about__text">
+                            Cross-domain adaptability isn't a buzzword for me — it's a methodology. I move fluidly between game tech, ML pipelines, audio DSP, and distributed systems because the underlying patterns are universal. AI isn't a crutch; it's a <em class="text-accent-cyan">force multiplier</em>.
+                        </p>
+                    </div>
+                    <div class="about__principles" data-reveal>
+                        <div class="about__principle" data-hover-glow>
+                            <div class="about__principle-icon">⬡</div>
+                            <h3 class="about__principle-title">Architecture First</h3>
+                            <p class="about__principle-text">Every system starts with intentional design. Schema before syntax, contracts before code.</p>
+                            <div class="about__principle-glow"></div>
+                        </div>
+                        <div class="about__principle" data-hover-glow>
+                            <div class="about__principle-icon">◈</div>
+                            <h3 class="about__principle-title">AI-Augmented</h3>
+                            <p class="about__principle-text">LLMs and ML models integrated into build pipelines, not bolted on as afterthoughts.</p>
+                            <div class="about__principle-glow"></div>
+                        </div>
+                        <div class="about__principle" data-hover-glow>
+                            <div class="about__principle-icon">⬢</div>
+                            <h3 class="about__principle-title">Cross-Domain</h3>
+                            <p class="about__principle-text">Patterns transfer. Game engines inform orchestrators. RL informs system design.</p>
+                            <div class="about__principle-glow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__stats" data-reveal>
+                    <div class="about__stat">
+                        <span class="about__stat-value" data-count="28">0</span>
+                        <span class="about__stat-label">Repositories</span>
+                    </div>
+                    <div class="about__stat">
+                        <span class="about__stat-value" data-count="5">0</span>
+                        <span class="about__stat-label">Primary Languages</span>
+                    </div>
+                    <div class="about__stat">
+                        <span class="about__stat-value about__stat-value--infinity">∞</span>
+                        <span class="about__stat-label">Problem Domains</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SKILLS / TECHNICAL ARSENAL ============ -->
+        <section class="skills" id="skills">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">02</span>
+                    <h2 class="section__title" data-split-text>Technical Arsenal</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="skills__bento" data-reveal>
+                    <!-- Languages -->
+                    <div class="bento__card bento__card--languages" data-hover-glow>
+                        <div class="bento__card-header">
+                            <span class="bento__card-icon">⟨/⟩</span>
+                            <h3 class="bento__card-title">Languages</h3>
+                        </div>
+                        <div class="bento__badges">
+                            <span class="badge badge--green" data-magnetic-micro>TypeScript</span>
+                            <span class="badge badge--cyan" data-magnetic-micro>Python</span>
+                            <span class="badge badge--green" data-magnetic-micro>JavaScript</span>
+                            <span class="badge badge--purple" data-magnetic-micro>SQL</span>
+                            <span class="badge badge--cyan" data-magnetic-micro>Bash</span>
+                        </div>
+                        <div class="bento__card-glow"></div>
+                    </div>
+                    <!-- Frameworks -->
+                    <div class="bento__card bento__card--frameworks" data-hover-glow>
+                        <div class="bento__card-header">
+                            <span class="bento__card-icon">⚙</span>
+                            <h3 class="bento__card-title">Frameworks</h3>
+                        </div>
+                        <div class="bento__badges">
+                            <span class="badge badge--cyan" data-magnetic-micro>React</span>
+                            <span class="badge badge--green" data-magnetic-micro>Express</span>
+                            <span class="badge badge--purple" data-magnetic-micro>FastAPI</span>
+                            <span class="badge badge--cyan" data-magnetic-micro>PyTorch</span>
+                            <span class="badge badge--green" data-magnetic-micro>Gymnasium</span>
+                            <span class="badge badge--purple" data-magnetic-micro>PyQt6</span>
+                        </div>
+                        <div class="bento__card-glow"></div>
+                    </div>
+                    <!-- Infrastructure -->
+                    <div class="bento__card bento__card--infra" data-hover-glow>
+                        <div class="bento__card-header">
+                            <span class="bento__card-icon">☁</span>
+                            <h3 class="bento__card-title">Infrastructure</h3>
+                        </div>
+                        <div class="bento__badges">
+                            <span class="badge badge--green" data-magnetic-micro>Docker</span>
+                            <span class="badge badge--cyan" data-magnetic-micro>SQLite WAL</span>
+                            <span class="badge badge--purple" data-magnetic-micro>GitHub Actions</span>
+                        </div>
+                        <div class="bento__card-glow"></div>
+                    </div>
+                    <!-- AI/ML -->
+                    <div class="bento__card bento__card--aiml" data-hover-glow>
+                        <div class="bento__card-header">
+                            <span class="bento__card-icon">🧠</span>
+                            <h3 class="bento__card-title">AI / ML</h3>
+                        </div>
+                        <div class="bento__badges">
+                            <span class="badge badge--purple" data-magnetic-micro>LLM Integration</span>
+                            <span class="badge badge--cyan" data-magnetic-micro>Reinforcement Learning</span>
+                            <span class="badge badge--green" data-magnetic-micro>Deep Learning</span>
+                            <span class="badge badge--purple" data-magnetic-micro>XAI</span>
+                        </div>
+                        <div class="bento__card-glow"></div>
+                    </div>
+                    <!-- Specializations -->
+                    <div class="bento__card bento__card--spec" data-hover-glow>
+                        <div class="bento__card-header">
+                            <span class="bento__card-icon">◉</span>
+                            <h3 class="bento__card-title">Specializations</h3>
+                        </div>
+                        <div class="bento__badges">
+                            <span class="badge badge--green" data-magnetic-micro>Systems Architecture</span>
+                            <span class="badge badge--cyan" data-magnetic-micro>Runtime Orchestration</span>
+                            <span class="badge badge--purple" data-magnetic-micro>Reverse Engineering</span>
+                        </div>
+                        <div class="bento__card-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PROJECTS SECTION ============ -->
+        <section class="projects" id="projects">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">03</span>
+                    <h2 class="section__title" data-split-text>Featured Projects</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="projects__grid">
+                    <!-- SynapseOS -->
+                    <article class="project-card project-card--featured" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">01</span>
+                            <div class="project-card__status">
+                                <span class="project-card__status-dot"></span>
+                                Active
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">SynapseOS</h3>
+                        <p class="project-card__description">Container-native multi-agent orchestration framework. Modular runtime for spinning up, coordinating, and monitoring autonomous AI agents in isolated Docker environments with real-time state synchronization.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--green">TypeScript</span>
+                            <span class="pill pill--cyan">Docker</span>
+                            <span class="pill pill--purple">React</span>
+                            <span class="pill pill--green">SQLite</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">Orchestration</span>
+                        </div>
+                        <div class="project-card__glow"></div>
+                    </article>
+
+                    <!-- Solo Exploration Lab -->
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">02</span>
+                            <div class="project-card__status">
+                                <span class="project-card__status-dot"></span>
+                                Active
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">Solo Exploration Lab</h3>
+                        <p class="project-card__description">Enterprise ML pipeline leveraging runtime reverse engineering for celestial data analysis. Multi-stage processing with explainable AI outputs for astronomical pattern recognition.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--cyan">Python</span>
+                            <span class="pill pill--purple">PyTorch</span>
+                            <span class="pill pill--green">XAI</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">AI / ML</span>
+                        </div>
+                        <div class="project-card__glow"></div>
+                    </article>
+
+                    <!-- Project Celestia -->
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">03</span>
+                            <div class="project-card__status">
+                                <span class="project-card__status-dot"></span>
+                                Active
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">Project Celestia <span class="project-card__subtitle">(GPIP)</span></h3>
+                        <p class="project-card__description">Intelligent offline-first progression planner for Genshin Impact. Graph-based resource optimization with predictive scheduling and responsive data visualization dashboards.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--purple">React</span>
+                            <span class="pill pill--green">TypeScript</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">Game Tech</span>
+                        </div>
+                        <div class="project-card__glow"></div>
+                    </article>
+
+                    <!-- OrbitalOps RL -->
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">04</span>
+                            <div class="project-card__status">
+                                <span class="project-card__status-dot"></span>
+                                Active
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">OrbitalOps RL</h3>
+                        <p class="project-card__description">Production-ready reinforcement learning environment for space mission trajectory optimization. Custom Gymnasium environments with FastAPI serving and LiteLLM advisory integration.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--green">Gymnasium</span>
+                            <span class="pill pill--cyan">FastAPI</span>
+                            <span class="pill pill--purple">LiteLLM</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">AI / ML</span>
+                        </div>
+                        <div class="project-card__glow"></div>
+                    </article>
+
+                    <!-- SILEXIS OS -->
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">05</span>
+                            <div class="project-card__status">
+                                <span class="project-card__status-dot"></span>
+                                Active
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">SILEXIS OS</h3>
+                        <p class="project-card__description">Modular orchestration platform with event-driven data ingestion. Desktop-native UI built with PyQt6, featuring plugin architecture and containerized processing pipelines.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--cyan">Python</span>
+                            <span class="pill pill--purple">PyQt6</span>
+                            <span class="pill pill--green">Docker</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">Orchestration</span>
+                        </div>
+                        <div class="project-card__glow"></div>
+                    </article>
+
+                    <!-- osu! Progression -->
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">06</span>
+                            <div class="project-card__status">
+                                <span class="project-card__status-dot project-card__status-dot--stable"></span>
+                                Stable
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">osu! Progression System</h3>
+                        <p class="project-card__description">Low-latency beatmap discovery and skill progression engine. Real-time audio analysis with Web Audio API and intelligent difficulty curve matching.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--green">JavaScript</span>
+                            <span class="pill pill--cyan">Web Audio</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">Game Tech</span>
+                        </div>
+                        <div class="project-card__glow"></div>
+                    </article>
+
+                    <!-- AURA & Neon Wavefall -->
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">07</span>
+                            <div class="project-card__status">
+                                <span class="project-card__status-dot project-card__status-dot--stable"></span>
+                                Stable
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">AURA Audio Player & Neon Wavefall</h3>
+                        <p class="project-card__description">64-bit DSP audio processing engine and real-time network audio visualizer. High-fidelity waveform rendering with custom shader-inspired canvas pipelines.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--purple">DSP</span>
+                            <span class="pill pill--green">Audio Engine</span>
+                            <span class="pill pill--cyan">Canvas</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">Tools</span>
+                        </div>
+                        <div class="project-card__glow"></div>
+                    </article>
+
+                    <!-- PolyLingua & Stock ML -->
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">08</span>
+                            <div class="project-card__status">
+                                <span class="project-card__status-dot project-card__status-dot--stable"></span>
+                                Stable
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">PolyLingua Hub & Stock ML Suite</h3>
+                        <p class="project-card__description">NLP-powered multi-language translation platform and ARIMA-based time-series stock prediction modeling with statistical validation pipelines.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--cyan">NLP</span>
+                            <span class="pill pill--purple">ARIMA</span>
+                            <span class="pill pill--green">Python</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">AI / ML</span>
+                        </div>
+                        <div class="project-card__glow"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ WORKFLOW / PROCESS SECTION ============ -->
+        <section class="workflow" id="workflow">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">04</span>
+                    <h2 class="section__title" data-split-text>Build Process</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="workflow__timeline">
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">01</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Intent & Analysis</h3>
+                            <p class="workflow__step-text">Define the problem space. Map constraints. Identify the minimal viable architecture that solves the core challenge.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">02</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Architecture First</h3>
+                            <p class="workflow__step-text">Schema design, API contracts, data flow diagrams. The blueprint is the product — code is just the materialization.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">03</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Rapid Prototyping</h3>
+                            <p class="workflow__step-text">AI-augmented development cycles. Ship the first functional prototype fast, validate assumptions, iterate with data.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">04</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Obsessive Polish</h3>
+                            <p class="workflow__step-text">Edge cases, error boundaries, performance profiling. The delta between good and great lives in the details.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">05</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Deployment & Monitor</h3>
+                            <p class="workflow__step-text">CI/CD pipelines, containerized deployments, runtime observability. If it's not monitored, it's not in production.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">06</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Cross-Domain Learning</h3>
+                            <p class="workflow__step-text">Extract patterns. Apply RL insights to UI systems. Use game design thinking in API architecture. Knowledge compounds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ECOSYSTEM SECTION ============ -->
+        <section class="ecosystem" id="ecosystem">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">05</span>
+                    <h2 class="section__title" data-split-text>Repository Ecosystem</h2>
+                    <div class="section__line"></div>
+                </div>
+                <p class="ecosystem__subtitle" data-reveal>28 repositories across 4 primary domains — each one a distinct system with clear intent.</p>
+                <div class="ecosystem__grid">
+                    <div class="ecosystem__domain" data-reveal data-hover-glow>
+                        <div class="ecosystem__domain-header">
+                            <div class="ecosystem__domain-icon ecosystem__domain-icon--green">⬡</div>
+                            <h3 class="ecosystem__domain-title">Orchestration</h3>
+                        </div>
+                        <div class="ecosystem__domain-bar">
+                            <div class="ecosystem__domain-fill" data-width="35" style="--fill-color: var(--accent-green)"></div>
+                        </div>
+                        <ul class="ecosystem__domain-list">
+                            <li>SynapseOS</li>
+                            <li>SILEXIS OS</li>
+                            <li>Runtime Systems</li>
+                        </ul>
+                        <span class="ecosystem__domain-count">~10 repos</span>
+                        <div class="ecosystem__domain-glow"></div>
+                    </div>
+                    <div class="ecosystem__domain" data-reveal data-hover-glow>
+                        <div class="ecosystem__domain-header">
+                            <div class="ecosystem__domain-icon ecosystem__domain-icon--cyan">◈</div>
+                            <h3 class="ecosystem__domain-title">Game Tech</h3>
+                        </div>
+                        <div class="ecosystem__domain-bar">
+                            <div class="ecosystem__domain-fill" data-width="25" style="--fill-color: var(--accent-cyan)"></div>
+                        </div>
+                        <ul class="ecosystem__domain-list">
+                            <li>Project Celestia</li>
+                            <li>osu! Progression</li>
+                            <li>Game Systems</li>
+                        </ul>
+                        <span class="ecosystem__domain-count">~7 repos</span>
+                        <div class="ecosystem__domain-glow"></div>
+                    </div>
+                    <div class="ecosystem__domain" data-reveal data-hover-glow>
+                        <div class="ecosystem__domain-header">
+                            <div class="ecosystem__domain-icon ecosystem__domain-icon--purple">⬢</div>
+                            <h3 class="ecosystem__domain-title">AI / ML</h3>
+                        </div>
+                        <div class="ecosystem__domain-bar">
+                            <div class="ecosystem__domain-fill" data-width="28" style="--fill-color: var(--accent-purple)"></div>
+                        </div>
+                        <ul class="ecosystem__domain-list">
+                            <li>OrbitalOps RL</li>
+                            <li>Solo Exploration Lab</li>
+                            <li>Stock ML Suite</li>
+                        </ul>
+                        <span class="ecosystem__domain-count">~8 repos</span>
+                        <div class="ecosystem__domain-glow"></div>
+                    </div>
+                    <div class="ecosystem__domain" data-reveal data-hover-glow>
+                        <div class="ecosystem__domain-header">
+                            <div class="ecosystem__domain-icon ecosystem__domain-icon--green">⊡</div>
+                            <h3 class="ecosystem__domain-title">Tools</h3>
+                        </div>
+                        <div class="ecosystem__domain-bar">
+                            <div class="ecosystem__domain-fill" data-width="12" style="--fill-color: var(--accent-green)"></div>
+                        </div>
+                        <ul class="ecosystem__domain-list">
+                            <li>AURA Audio</li>
+                            <li>Neon Wavefall</li>
+                            <li>PolyLingua Hub</li>
+                        </ul>
+                        <span class="ecosystem__domain-count">~3 repos</span>
+                        <div class="ecosystem__domain-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ VIRTUAL ENVIRONMENTS & SANDBOXES ============ -->
+        <section class="sandboxes" id="sandboxes">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">06</span>
+                    <h2 class="section__title" data-split-text>Virtual Environments & Sandboxes</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="sandboxes__intro" data-reveal>
+                    <p class="sandboxes__lead">Complex simulation environments serve as high-fidelity training grounds for <em class="text-accent-cyan">systems thinking</em>, <em class="text-accent-green">real-time decision making</em>, and <em class="text-accent-purple">adaptive strategy</em>. Each sandbox is an engine I interact with to refine orchestration instincts.</p>
+                </div>
+                <div class="sandboxes__track-wrapper">
+                    <div class="sandboxes__track" id="sandboxes-track">
+                        <!-- No Man's Sky -->
+                        <div class="sandbox-node" data-reveal>
+                            <div class="sandbox-node__inner" data-hover-glow>
+                                <div class="sandbox-node__scan-line"></div>
+                                <div class="sandbox-node__header">
+                                    <span class="sandbox-node__signal"></span>
+                                    <span class="sandbox-node__id">ENV_001</span>
+                                </div>
+                                <h3 class="sandbox-node__title">No Man's Sky</h3>
+                                <div class="sandbox-node__tags">
+                                    <span class="sandbox-node__tag">Procedural Generation</span>
+                                    <span class="sandbox-node__tag">Resource Systems</span>
+                                    <span class="sandbox-node__tag">Exploration AI</span>
+                                </div>
+                                <div class="sandbox-node__telemetry">
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">Domain</span>
+                                        <span class="sandbox-node__metric-value">Infinite Worlds</span>
+                                    </div>
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">System</span>
+                                        <span class="sandbox-node__metric-value">Open Sandbox</span>
+                                    </div>
+                                </div>
+                                <div class="sandbox-node__glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- Universe Sandbox -->
+                        <div class="sandbox-node" data-reveal>
+                            <div class="sandbox-node__inner" data-hover-glow>
+                                <div class="sandbox-node__scan-line"></div>
+                                <div class="sandbox-node__header">
+                                    <span class="sandbox-node__signal sandbox-node__signal--cyan"></span>
+                                    <span class="sandbox-node__id">ENV_002</span>
+                                </div>
+                                <h3 class="sandbox-node__title">Universe Sandbox</h3>
+                                <div class="sandbox-node__tags">
+                                    <span class="sandbox-node__tag">Physics Simulation</span>
+                                    <span class="sandbox-node__tag">Orbital Mechanics</span>
+                                    <span class="sandbox-node__tag">N-Body Problems</span>
+                                </div>
+                                <div class="sandbox-node__telemetry">
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">Domain</span>
+                                        <span class="sandbox-node__metric-value">Astrophysics</span>
+                                    </div>
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">System</span>
+                                        <span class="sandbox-node__metric-value">Gravity Engine</span>
+                                    </div>
+                                </div>
+                                <div class="sandbox-node__glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- Genshin Impact -->
+                        <div class="sandbox-node" data-reveal>
+                            <div class="sandbox-node__inner" data-hover-glow>
+                                <div class="sandbox-node__scan-line"></div>
+                                <div class="sandbox-node__header">
+                                    <span class="sandbox-node__signal sandbox-node__signal--purple"></span>
+                                    <span class="sandbox-node__id">ENV_003</span>
+                                </div>
+                                <h3 class="sandbox-node__title">Genshin Impact</h3>
+                                <div class="sandbox-node__tags">
+                                    <span class="sandbox-node__tag">Resource Optimization</span>
+                                    <span class="sandbox-node__tag">Elemental Systems</span>
+                                    <span class="sandbox-node__tag">Progression Graphs</span>
+                                </div>
+                                <div class="sandbox-node__telemetry">
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">Domain</span>
+                                        <span class="sandbox-node__metric-value">Gacha Economy</span>
+                                    </div>
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">System</span>
+                                        <span class="sandbox-node__metric-value">Open World RPG</span>
+                                    </div>
+                                </div>
+                                <div class="sandbox-node__glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- Space Engine -->
+                        <div class="sandbox-node" data-reveal>
+                            <div class="sandbox-node__inner" data-hover-glow>
+                                <div class="sandbox-node__scan-line"></div>
+                                <div class="sandbox-node__header">
+                                    <span class="sandbox-node__signal"></span>
+                                    <span class="sandbox-node__id">ENV_004</span>
+                                </div>
+                                <h3 class="sandbox-node__title">Space Engine</h3>
+                                <div class="sandbox-node__tags">
+                                    <span class="sandbox-node__tag">Stellar Cartography</span>
+                                    <span class="sandbox-node__tag">Scale Visualization</span>
+                                    <span class="sandbox-node__tag">Cosmic Navigation</span>
+                                </div>
+                                <div class="sandbox-node__telemetry">
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">Domain</span>
+                                        <span class="sandbox-node__metric-value">Universe Scale</span>
+                                    </div>
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">System</span>
+                                        <span class="sandbox-node__metric-value">Planetarium</span>
+                                    </div>
+                                </div>
+                                <div class="sandbox-node__glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- Solo Leveling: Arise -->
+                        <div class="sandbox-node" data-reveal>
+                            <div class="sandbox-node__inner" data-hover-glow>
+                                <div class="sandbox-node__scan-line"></div>
+                                <div class="sandbox-node__header">
+                                    <span class="sandbox-node__signal sandbox-node__signal--purple"></span>
+                                    <span class="sandbox-node__id">ENV_005</span>
+                                </div>
+                                <h3 class="sandbox-node__title">Solo Leveling: Arise</h3>
+                                <div class="sandbox-node__tags">
+                                    <span class="sandbox-node__tag">Progression Systems</span>
+                                    <span class="sandbox-node__tag">Combat Loops</span>
+                                    <span class="sandbox-node__tag">Power Scaling</span>
+                                </div>
+                                <div class="sandbox-node__telemetry">
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">Domain</span>
+                                        <span class="sandbox-node__metric-value">Action RPG</span>
+                                    </div>
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">System</span>
+                                        <span class="sandbox-node__metric-value">Hunter Engine</span>
+                                    </div>
+                                </div>
+                                <div class="sandbox-node__glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- osu! -->
+                        <div class="sandbox-node" data-reveal>
+                            <div class="sandbox-node__inner" data-hover-glow>
+                                <div class="sandbox-node__scan-line"></div>
+                                <div class="sandbox-node__header">
+                                    <span class="sandbox-node__signal sandbox-node__signal--cyan"></span>
+                                    <span class="sandbox-node__id">ENV_006</span>
+                                </div>
+                                <h3 class="sandbox-node__title">osu!</h3>
+                                <div class="sandbox-node__tags">
+                                    <span class="sandbox-node__tag">Rhythm Precision</span>
+                                    <span class="sandbox-node__tag">Latency Optimization</span>
+                                    <span class="sandbox-node__tag">Input Timing</span>
+                                </div>
+                                <div class="sandbox-node__telemetry">
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">Domain</span>
+                                        <span class="sandbox-node__metric-value">Audio-Visual Sync</span>
+                                    </div>
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">System</span>
+                                        <span class="sandbox-node__metric-value">Rhythm Engine</span>
+                                    </div>
+                                </div>
+                                <div class="sandbox-node__glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- Microsoft Flight Simulator -->
+                        <div class="sandbox-node" data-reveal>
+                            <div class="sandbox-node__inner" data-hover-glow>
+                                <div class="sandbox-node__scan-line"></div>
+                                <div class="sandbox-node__header">
+                                    <span class="sandbox-node__signal"></span>
+                                    <span class="sandbox-node__id">ENV_007</span>
+                                </div>
+                                <h3 class="sandbox-node__title">MS Flight Simulator</h3>
+                                <div class="sandbox-node__tags">
+                                    <span class="sandbox-node__tag">Aerodynamics</span>
+                                    <span class="sandbox-node__tag">Weather Systems</span>
+                                    <span class="sandbox-node__tag">Navigation</span>
+                                </div>
+                                <div class="sandbox-node__telemetry">
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">Domain</span>
+                                        <span class="sandbox-node__metric-value">Flight Physics</span>
+                                    </div>
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">System</span>
+                                        <span class="sandbox-node__metric-value">Digital Twin</span>
+                                    </div>
+                                </div>
+                                <div class="sandbox-node__glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- Dragon Ball Z: Kakarot -->
+                        <div class="sandbox-node" data-reveal>
+                            <div class="sandbox-node__inner" data-hover-glow>
+                                <div class="sandbox-node__scan-line"></div>
+                                <div class="sandbox-node__header">
+                                    <span class="sandbox-node__signal sandbox-node__signal--purple"></span>
+                                    <span class="sandbox-node__id">ENV_008</span>
+                                </div>
+                                <h3 class="sandbox-node__title">DBZ: Kakarot</h3>
+                                <div class="sandbox-node__tags">
+                                    <span class="sandbox-node__tag">Combat Trees</span>
+                                    <span class="sandbox-node__tag">Narrative Branching</span>
+                                    <span class="sandbox-node__tag">Skill Systems</span>
+                                </div>
+                                <div class="sandbox-node__telemetry">
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">Domain</span>
+                                        <span class="sandbox-node__metric-value">Action RPG</span>
+                                    </div>
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">System</span>
+                                        <span class="sandbox-node__metric-value">Combat Engine</span>
+                                    </div>
+                                </div>
+                                <div class="sandbox-node__glow"></div>
+                            </div>
+                        </div>
+
+                        <!-- Asphalt 9 Legends -->
+                        <div class="sandbox-node" data-reveal>
+                            <div class="sandbox-node__inner" data-hover-glow>
+                                <div class="sandbox-node__scan-line"></div>
+                                <div class="sandbox-node__header">
+                                    <span class="sandbox-node__signal sandbox-node__signal--cyan"></span>
+                                    <span class="sandbox-node__id">ENV_009</span>
+                                </div>
+                                <h3 class="sandbox-node__title">Asphalt 9 Legends</h3>
+                                <div class="sandbox-node__tags">
+                                    <span class="sandbox-node__tag">Physics Tuning</span>
+                                    <span class="sandbox-node__tag">Nitro Management</span>
+                                    <span class="sandbox-node__tag">Route Optimization</span>
+                                </div>
+                                <div class="sandbox-node__telemetry">
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">Domain</span>
+                                        <span class="sandbox-node__metric-value">Racing Physics</span>
+                                    </div>
+                                    <div class="sandbox-node__metric">
+                                        <span class="sandbox-node__metric-label">System</span>
+                                        <span class="sandbox-node__metric-value">Arcade Engine</span>
+                                    </div>
+                                </div>
+                                <div class="sandbox-node__glow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sandboxes__scroll-hint" data-reveal>
+                    <span class="sandboxes__scroll-hint-icon">⟵</span>
+                    <span class="sandboxes__scroll-hint-text">Drag to explore environments</span>
+                    <span class="sandboxes__scroll-hint-icon">⟶</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT SECTION ============ -->
+        <section class="contact" id="contact">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">07</span>
+                    <h2 class="section__title" data-split-text>Initialize Connection</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="contact__terminal" data-reveal>
+                    <div class="terminal__header">
+                        <div class="terminal__dots">
+                            <span class="terminal__dot terminal__dot--red"></span>
+                            <span class="terminal__dot terminal__dot--yellow"></span>
+                            <span class="terminal__dot terminal__dot--green"></span>
+                        </div>
+                        <span class="terminal__title">contact@samraddha — zsh</span>
+                    </div>
+                    <div class="terminal__body">
+                        <div class="terminal__line">
+                            <span class="terminal__prompt">$</span>
+                            <span class="terminal__command" id="terminal-text"></span>
+                            <span class="terminal__cursor">▊</span>
+                        </div>
+                        <div class="terminal__output">
+                            <div class="terminal__output-line">
+                                <span class="terminal__label">STATUS</span>
+                                <span class="terminal__value terminal__value--green">Available for collaboration</span>
+                            </div>
+                            <div class="terminal__output-line">
+                                <span class="terminal__label">GITHUB</span>
+                                <a href="https://github.com/SAMRADDHASHRIVASTAVATECH" target="_blank" rel="noopener noreferrer" class="terminal__link" data-cursor-hover>
+                                    github.com/SAMRADDHASHRIVASTAVATECH
+                                </a>
+                            </div>
+                            <div class="terminal__output-line">
+                                <span class="terminal__label">EMAIL</span>
+                                <a href="mailto:samraddha.shrivastava.2025@gmail.com" class="terminal__link" data-cursor-hover>
+                                    samraddha.shrivastava.2025@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact__links" data-reveal>
+                    <a href="https://github.com/SAMRADDHASHRIVASTAVATECH" target="_blank" rel="noopener noreferrer" class="contact__link" data-magnetic data-cursor-hover>
+                        <span class="contact__link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        </span>
+                        <span class="contact__link-text">GitHub</span>
+                        <span class="contact__link-arrow">↗</span>
+                    </a>
+                    <a href="mailto:samraddha.shrivastava@gmail.com" class="contact__link" data-magnetic data-cursor-hover>
+                        <span class="contact__link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </span>
+                        <span class="contact__link-text">Email</span>
+                        <span class="contact__link-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__text">
+                <span class="footer__brackets">[</span>
+                Designed & Built by Samraddha Shrivastava
+                <span class="footer__brackets">]</span>
+            </p>
+            <p class="footer__subtext">Systems don't sleep. Neither does curiosity.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
