@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Samraddha Shrivastava — Systems Orchestrator | AI Builder | Systems Architect. Building deterministic, experimental, and adaptive systems.">
     <meta name="theme-color" content="#050505">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
     <title>Samraddha Shrivastava — Systems Orchestrator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +16,7 @@
     <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body>
-    <!-- Custom Cursor -->
+    <!-- Custom Cursor (hidden on touch) -->
     <div class="cursor" id="cursor" aria-hidden="true">
         <div class="cursor__dot"></div>
         <div class="cursor__ring"></div>
@@ -193,7 +196,6 @@
                     <div class="section__line"></div>
                 </div>
                 <div class="skills__bento" data-reveal>
-                    <!-- Languages -->
                     <div class="bento__card bento__card--languages" data-hover-glow>
                         <div class="bento__card-header">
                             <span class="bento__card-icon">⟨/⟩</span>
@@ -208,7 +210,6 @@
                         </div>
                         <div class="bento__card-glow"></div>
                     </div>
-                    <!-- Frameworks -->
                     <div class="bento__card bento__card--frameworks" data-hover-glow>
                         <div class="bento__card-header">
                             <span class="bento__card-icon">⚙</span>
@@ -224,7 +225,6 @@
                         </div>
                         <div class="bento__card-glow"></div>
                     </div>
-                    <!-- Infrastructure -->
                     <div class="bento__card bento__card--infra" data-hover-glow>
                         <div class="bento__card-header">
                             <span class="bento__card-icon">☁</span>
@@ -237,7 +237,6 @@
                         </div>
                         <div class="bento__card-glow"></div>
                     </div>
-                    <!-- AI/ML -->
                     <div class="bento__card bento__card--aiml" data-hover-glow>
                         <div class="bento__card-header">
                             <span class="bento__card-icon">🧠</span>
@@ -251,7 +250,6 @@
                         </div>
                         <div class="bento__card-glow"></div>
                     </div>
-                    <!-- Specializations -->
                     <div class="bento__card bento__card--spec" data-hover-glow>
                         <div class="bento__card-header">
                             <span class="bento__card-icon">◉</span>
@@ -277,7 +275,6 @@
                     <div class="section__line"></div>
                 </div>
                 <div class="projects__grid">
-                    <!-- SynapseOS -->
                     <article class="project-card project-card--featured" data-reveal data-hover-glow>
                         <div class="project-card__header">
                             <span class="project-card__index">01</span>
@@ -300,7 +297,6 @@
                         <div class="project-card__glow"></div>
                     </article>
 
-                    <!-- Solo Exploration Lab -->
                     <article class="project-card" data-reveal data-hover-glow>
                         <div class="project-card__header">
                             <span class="project-card__index">02</span>
@@ -322,7 +318,6 @@
                         <div class="project-card__glow"></div>
                     </article>
 
-                    <!-- Project Celestia -->
                     <article class="project-card" data-reveal data-hover-glow>
                         <div class="project-card__header">
                             <span class="project-card__index">03</span>
@@ -343,7 +338,6 @@
                         <div class="project-card__glow"></div>
                     </article>
 
-                    <!-- OrbitalOps RL -->
                     <article class="project-card" data-reveal data-hover-glow>
                         <div class="project-card__header">
                             <span class="project-card__index">04</span>
@@ -365,7 +359,6 @@
                         <div class="project-card__glow"></div>
                     </article>
 
-                    <!-- SILEXIS OS -->
                     <article class="project-card" data-reveal data-hover-glow>
                         <div class="project-card__header">
                             <span class="project-card__index">05</span>
@@ -387,7 +380,6 @@
                         <div class="project-card__glow"></div>
                     </article>
 
-                    <!-- osu! Progression -->
                     <article class="project-card" data-reveal data-hover-glow>
                         <div class="project-card__header">
                             <span class="project-card__index">06</span>
@@ -408,7 +400,6 @@
                         <div class="project-card__glow"></div>
                     </article>
 
-                    <!-- AURA & Neon Wavefall -->
                     <article class="project-card" data-reveal data-hover-glow>
                         <div class="project-card__header">
                             <span class="project-card__index">07</span>
@@ -430,7 +421,6 @@
                         <div class="project-card__glow"></div>
                     </article>
 
-                    <!-- PolyLingua & Stock ML -->
                     <article class="project-card" data-reveal data-hover-glow>
                         <div class="project-card__header">
                             <span class="project-card__index">08</span>
@@ -601,7 +591,6 @@
                 </div>
                 <div class="sandboxes__track-wrapper">
                     <div class="sandboxes__track" id="sandboxes-track">
-                        <!-- No Man's Sky -->
                         <div class="sandbox-node" data-reveal>
                             <div class="sandbox-node__inner" data-hover-glow>
                                 <div class="sandbox-node__scan-line"></div>
@@ -629,7 +618,6 @@
                             </div>
                         </div>
 
-                        <!-- Universe Sandbox -->
                         <div class="sandbox-node" data-reveal>
                             <div class="sandbox-node__inner" data-hover-glow>
                                 <div class="sandbox-node__scan-line"></div>
@@ -657,7 +645,6 @@
                             </div>
                         </div>
 
-                        <!-- Genshin Impact -->
                         <div class="sandbox-node" data-reveal>
                             <div class="sandbox-node__inner" data-hover-glow>
                                 <div class="sandbox-node__scan-line"></div>
@@ -685,7 +672,6 @@
                             </div>
                         </div>
 
-                        <!-- Space Engine -->
                         <div class="sandbox-node" data-reveal>
                             <div class="sandbox-node__inner" data-hover-glow>
                                 <div class="sandbox-node__scan-line"></div>
@@ -713,7 +699,6 @@
                             </div>
                         </div>
 
-                        <!-- Solo Leveling: Arise -->
                         <div class="sandbox-node" data-reveal>
                             <div class="sandbox-node__inner" data-hover-glow>
                                 <div class="sandbox-node__scan-line"></div>
@@ -741,7 +726,6 @@
                             </div>
                         </div>
 
-                        <!-- osu! -->
                         <div class="sandbox-node" data-reveal>
                             <div class="sandbox-node__inner" data-hover-glow>
                                 <div class="sandbox-node__scan-line"></div>
@@ -769,7 +753,6 @@
                             </div>
                         </div>
 
-                        <!-- Microsoft Flight Simulator -->
                         <div class="sandbox-node" data-reveal>
                             <div class="sandbox-node__inner" data-hover-glow>
                                 <div class="sandbox-node__scan-line"></div>
@@ -797,7 +780,6 @@
                             </div>
                         </div>
 
-                        <!-- Dragon Ball Z: Kakarot -->
                         <div class="sandbox-node" data-reveal>
                             <div class="sandbox-node__inner" data-hover-glow>
                                 <div class="sandbox-node__scan-line"></div>
@@ -825,7 +807,6 @@
                             </div>
                         </div>
 
-                        <!-- Asphalt 9 Legends -->
                         <div class="sandbox-node" data-reveal>
                             <div class="sandbox-node__inner" data-hover-glow>
                                 <div class="sandbox-node__scan-line"></div>
