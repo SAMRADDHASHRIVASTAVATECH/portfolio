@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Samraddha Shrivastava — Systems Orchestrator | AI Builder | Systems Architect. Verified projects in audio DSP, ML/AI, RL environments, and container orchestration.">
+    <meta name="theme-color" content="#050505">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>Samraddha Shrivastava — Systems Orchestrator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor__dot"></div>
+        <div class="cursor__ring"></div>
+    </div>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="vignette-overlay" aria-hidden="true"></div>
+
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader__inner">
+            <div class="loader__logo">
+                <span class="loader__bracket">[</span>
+                <span class="loader__text">SS</span>
+                <span class="loader__bracket">]</span>
+            </div>
+            <div class="loader__bar">
+                <div class="loader__bar-fill" id="loader-fill"></div>
+            </div>
+            <p class="loader__status" id="loader-status">Initializing Systems...</p>
+        </div>
+    </div>
+
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <a href="#hero" class="nav__logo" data-magnetic>
+                <span class="nav__logo-bracket">[</span>
+                <span class="nav__logo-text">SS</span>
+                <span class="nav__logo-bracket">]</span>
+                <span class="nav__logo-ping"></span>
+            </a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+                <span class="nav__toggle-line"></span>
+            </button>
+            <ul class="nav__list" id="nav-list">
+                <li class="nav__item"><a href="#about" class="nav__link" data-index="01" data-magnetic>Philosophy</a></li>
+                <li class="nav__item"><a href="#skills" class="nav__link" data-index="02" data-magnetic>Arsenal</a></li>
+                <li class="nav__item"><a href="#projects" class="nav__link" data-index="03" data-magnetic>Projects</a></li>
+                <li class="nav__item"><a href="#workflow" class="nav__link" data-index="04" data-magnetic>Process</a></li>
+                <li class="nav__item"><a href="#verified" class="nav__link" data-index="05" data-magnetic>Verified Work</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link nav__link--cta" data-index="06" data-magnetic>Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="hero">
+            <div class="hero__container">
+                <div class="hero__status">
+                    <span class="hero__status-dot"></span>
+                    <span class="hero__status-text">Systems Online</span>
+                    <span class="hero__status-ver">v3.2.0</span>
+                </div>
+                <h1 class="hero__title">
+                    <span class="hero__title-line">
+                        <span class="hero__title-word" data-split-text>Systems</span>
+                    </span>
+                    <span class="hero__title-line">
+                        <span class="hero__title-word hero__title-word--accent" data-split-text>Orchestrator</span>
+                    </span>
+                </h1>
+                <div class="hero__roles">
+                    <span class="hero__role">AI Builder</span>
+                    <span class="hero__role-sep">◆</span>
+                    <span class="hero__role">Systems Architect</span>
+                </div>
+                <p class="hero__subtitle">
+                    <span class="hero__subtitle-word">Real-time systems.</span>
+                    <span class="hero__subtitle-word">ML/AI pipelines.</span>
+                    <span class="hero__subtitle-word">Container-native orchestration.</span>
+                </p>
+                <div class="hero__actions">
+                    <a href="#verified" class="btn btn--primary" data-magnetic>
+                        <span class="btn__text">View Verified Projects</span>
+                        <span class="btn__icon">→</span>
+                        <span class="btn__glow"></span>
+                    </a>
+                    <a href="#contact" class="btn btn--secondary" data-magnetic>
+                        <span class="btn__text">Get In Touch</span>
+                        <span class="btn__icon">↗</span>
+                    </a>
+                </div>
+                <div class="hero__scroll-indicator">
+                    <div class="hero__scroll-line"></div>
+                    <span class="hero__scroll-text">Scroll</span>
+                </div>
+            </div>
+            <div class="hero__geometry" aria-hidden="true">
+                <div class="hero__orb hero__orb--1"></div>
+                <div class="hero__orb hero__orb--2"></div>
+                <div class="hero__orb hero__orb--3"></div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="about" id="about">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">01</span>
+                    <h2 class="section__title">Builder Philosophy</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="about__grid">
+                    <div class="about__content" data-reveal>
+                        <p class="about__lead">
+                            I build <em class="text-accent-green">production-ready systems</em> at the intersection of real-time computing, machine learning, and container orchestration. Every project is driven by evidence: verified commit history, documented architecture, and measurable outcomes.
+                        </p>
+                        <p class="about__text">
+                            My work spans <em class="text-accent-cyan">digital signal processing</em> (AURA-Audio-Player, Neon Wavefall), <em class="text-accent-purple">large-scale ML pipelines</em> (Solo-Exploration-Lab), <em class="text-accent-green">reinforcement learning environments</em> (OrbitalOps-RL), and <em class="text-accent-cyan">multi-agent orchestration</em> (SynapseOS). I treat systems as living architectures—modular, observable, and designed to evolve.
+                        </p>
+                        <p class="about__text">
+                            Architecture isn't an afterthought. Schema before syntax. Performance profiling before release. When I ship code, it comes with commit history you can trace, READMEs that document intent, and systems thinking that scales.
+                        </p>
+                    </div>
+                    <div class="about__principles" data-reveal>
+                        <div class="about__principle" data-hover-glow>
+                            <div class="about__principle-icon">⬡</div>
+                            <h3 class="about__principle-title">Evidence-Based</h3>
+                            <p class="about__principle-text">Commit history, verified ownership, documented READMEs. Every claim is traceable.</p>
+                        </div>
+                        <div class="about__principle" data-hover-glow>
+                            <div class="about__principle-icon">◈</div>
+                            <h3 class="about__principle-title">Production-Ready</h3>
+                            <p class="about__principle-text">Real-time systems, ML validation, containerized deployment. Not prototypes.</p>
+                        </div>
+                        <div class="about__principle" data-hover-glow>
+                            <div class="about__principle-icon">⬢</div>
+                            <h3 class="about__principle-title">Cross-Domain</h3>
+                            <p class="about__principle-text">Patterns from game systems, RL, audio DSP, data engineering. Synthesis matters.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__stats" data-reveal>
+                    <div class="about__stat">
+                        <span class="about__stat-value" data-count="28">0</span>
+                        <span class="about__stat-label">Total Repositories</span>
+                    </div>
+                    <div class="about__stat">
+                        <span class="about__stat-value" data-count="6">0</span>
+                        <span class="about__stat-label">Verified Major Projects</span>
+                    </div>
+                    <div class="about__stat">
+                        <span class="about__stat-value">5+</span>
+                        <span class="about__stat-label">Technical Domains</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="skills" id="skills">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">02</span>
+                    <h2 class="section__title">Technical Arsenal</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="skills__bento" data-reveal>
+                    <div class="bento__card bento__card--wide" data-hover-glow>
+                        <div class="bento__card-header">
+                            <span class="bento__card-icon">⟨/⟩</span>
+                            <h3 class="bento__card-title">Languages</h3>
+                        </div>
+                        <div class="bento__badges">
+                            <span class="badge badge--green">Python</span>
+                            <span class="badge badge--cyan">TypeScript</span>
+                            <span class="badge badge--green">JavaScript</span>
+                            <span class="badge badge--purple">SQL</span>
+                            <span class="badge badge--cyan">Bash</span>
+                        </div>
+                    </div>
+                    <div class="bento__card" data-hover-glow>
+                        <div class="bento__card-header">
+                            <span class="bento__card-icon">⚙</span>
+                            <h3 class="bento__card-title">Frameworks & Libraries</h3>
+                        </div>
+                        <div class="bento__badges">
+                            <span class="badge badge--cyan">PyQt6</span>
+                            <span class="badge badge--green">FastAPI</span>
+                            <span class="badge badge--purple">PyTorch</span>
+                            <span class="badge badge--cyan">Gymnasium</span>
+                            <span class="badge badge--green">React</span>
+                            <span class="badge badge--purple">Express</span>
+                        </div>
+                    </div>
+                    <div class="bento__card" data-hover-glow>
+                        <div class="bento__card-header">
+                            <span class="bento__card-icon">☁</span>
+                            <h3 class="bento__card-title">Infrastructure & Tools</h3>
+                        </div>
+                        <div class="bento__badges">
+                            <span class="badge badge--green">Docker</span>
+                            <span class="badge badge--cyan">SQLite WAL</span>
+                            <span class="badge badge--purple">GitHub Actions</span>
+                            <span class="badge badge--green">Cloudflare Tunnel</span>
+                        </div>
+                    </div>
+                    <div class="bento__card bento__card--wide" data-hover-glow>
+                        <div class="bento__card-header">
+                            <span class="bento__card-icon">🧠</span>
+                            <h3 class="bento__card-title">Specializations</h3>
+                        </div>
+                        <div class="bento__badges">
+                            <span class="badge badge--purple">Real-time DSP</span>
+                            <span class="badge badge--cyan">Reinforcement Learning</span>
+                            <span class="badge badge--green">ML/Data Pipelines</span>
+                            <span class="badge badge--purple">Systems Architecture</span>
+                            <span class="badge badge--green">Runtime Orchestration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS (Curated) -->
+        <section class="projects" id="projects">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">03</span>
+                    <h2 class="section__title">Featured Systems</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="projects__grid">
+                    <article class="project-card project-card--featured" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">01</span>
+                            <div class="project-card__status">
+                                <span class="project-card__status-dot"></span>
+                                Active
+                            </div>
+                        </div>
+                        <h3 class="project-card__title">Solo-Exploration-Lab</h3>
+                        <p class="project-card__description">Enterprise-grade ML pipeline: reverse-engineer celestial data at runtime, process high-throughput datasets, train PyTorch models with XAI outputs. Lead developer (70%), ~200K+ records/session.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--cyan">Python</span>
+                            <span class="pill pill--purple">PyTorch</span>
+                            <span class="pill pill--green">SQLite WAL</span>
+                            <span class="pill pill--purple">XAI</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">AI/ML • Data Pipeline</span>
+                            <a href="repositories/solo-exploration-lab.html" target="_blank" class="project-card__link">View →</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">02</span>
+                            <div class="project-card__status"><span class="project-card__status-dot"></span>Active</div>
+                        </div>
+                        <h3 class="project-card__title">AURA-Audio-Player</h3>
+                        <p class="project-card__description">64-bit DSP engine with real-time audio processing, dual-deck DJ interface, 70+ effect presets, streaming server + Cloudflare tunnel support, cross-platform packaging.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--green">Python</span>
+                            <span class="pill pill--cyan">PyQt6</span>
+                            <span class="pill pill--purple">DSP</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">Audio • Systems</span>
+                            <a href="repositories/aura-audio-player.html" target="_blank" class="project-card__link">View →</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">03</span>
+                            <div class="project-card__status"><span class="project-card__status-dot"></span>Active</div>
+                        </div>
+                        <h3 class="project-card__title">OrbitalOps-RL</h3>
+                        <p class="project-card__description">Production RL environment for space mission optimization. Gymnasium-compliant, FastAPI + Gradio UI, Docker deployment, validation framework, live Hugging Face demo.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--purple">Gymnasium</span>
+                            <span class="pill pill--green">FastAPI</span>
+                            <span class="pill pill--cyan">Docker</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">AI/ML • RL</span>
+                            <a href="repositories/orbitalops-rl.html" target="_blank" class="project-card__link">View →</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">04</span>
+                            <div class="project-card__status"><span class="project-card__status-dot"></span>Active</div>
+                        </div>
+                        <h3 class="project-card__title">SynapseOS</h3>
+                        <p class="project-card__description">Container-native multi-agent orchestration framework. Express API, React dashboard, SQLite persistence, Docker Compose deployment. Full-stack integration with modular runtime.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--cyan">TypeScript</span>
+                            <span class="pill pill--green">Docker</span>
+                            <span class="pill pill--purple">React</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">Orchestration • Systems</span>
+                            <a href="repositories/synapseos.html" target="_blank" class="project-card__link">View →</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">05</span>
+                            <div class="project-card__status"><span class="project-card__status-dot"></span>Active</div>
+                        </div>
+                        <h3 class="project-card__title">Project Celestia (GPIP)</h3>
+                        <p class="project-card__description">Genshin Impact planner: offline-first progression system with React/TypeScript frontend, SQLite backend, resource optimization graphs, farming route intelligence.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--purple">React</span>
+                            <span class="pill pill--green">TypeScript</span>
+                            <span class="pill pill--cyan">Vite</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">Game Tech • Frontend</span>
+                            <a href="repositories/gpip-genshin-planner.html" target="_blank" class="project-card__link">View →</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-reveal data-hover-glow>
+                        <div class="project-card__header">
+                            <span class="project-card__index">06</span>
+                            <div class="project-card__status"><span class="project-card__status-dot project-card__status-dot--stable"></span>Stable</div>
+                        </div>
+                        <h3 class="project-card__title">Neon Wavefall</h3>
+                        <p class="project-card__description">Real-time audio streaming and visualization. LAN broadcast to multiple devices, browser clients, central control, high-fidelity waveform rendering via custom canvas pipelines.</p>
+                        <div class="project-card__tags">
+                            <span class="pill pill--green">Python</span>
+                            <span class="pill pill--cyan">Audio</span>
+                            <span class="pill pill--purple">Networking</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__category">Audio • Systems</span>
+                            <a href="repositories/neon-wavefall.html" target="_blank" class="project-card__link">View →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKFLOW -->
+        <section class="workflow" id="workflow">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">04</span>
+                    <h2 class="section__title">Build Process</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="workflow__timeline">
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">01</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Intent & Analysis</h3>
+                            <p class="workflow__step-text">Define the problem space. Map constraints. Identify minimal viable architecture solving the core challenge.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">02</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Architecture First</h3>
+                            <p class="workflow__step-text">Schema design before syntax. API contracts. Data flow diagrams. The blueprint is the product.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">03</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Rapid Prototyping</h3>
+                            <p class="workflow__step-text">Ship functional prototype fast. Validate assumptions. Iterate with evidence, not intuition.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">04</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Obsessive Optimization</h3>
+                            <p class="workflow__step-text">Performance profiling. Edge cases. Error boundaries. The delta between good and great is in details.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">05</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Deployment & Monitoring</h3>
+                            <p class="workflow__step-text">CI/CD pipelines. Containerized deployments. Runtime observability. Not monitored = not in production.</p>
+                        </div>
+                    </div>
+                    <div class="workflow__step" data-reveal>
+                        <div class="workflow__step-number">06</div>
+                        <div class="workflow__step-content">
+                            <h3 class="workflow__step-title">Cross-Domain Learning</h3>
+                            <p class="workflow__step-text">Extract patterns. Apply RL to UI design. Use game systems thinking in APIs. Knowledge compounds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VERIFIED WORK EVIDENCE -->
+        <section class="verified" id="verified">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">05</span>
+                    <h2 class="section__title">Verified Work — Evidence-Based</h2>
+                    <div class="section__line"></div>
+                </div>
+                <p class="verified__intro" data-reveal>All projects below are verified via commit history, authored READMEs, and documented architecture. No claims without evidence.</p>
+                
+                <div class="verified__projects" data-reveal>
+                    <div class="verified__project" data-hover-glow>
+                        <div class="verified__project-badge">✓ Verified</div>
+                        <h3 class="verified__project-title">Solo-Exploration-Lab</h3>
+                        <p class="verified__project-role">Lead Developer (70%)</p>
+                        <div class="verified__project-evidence">
+                            <span class="verified__evidence-item">📝 Authored README with module mapping</span>
+                            <span class="verified__evidence-item">⚙️ voidwalker_terminal.py, cosmic_harvester.py, stellar_intel.py</span>
+                            <span class="verified__evidence-item">📊 200K+ record processing, PyTorch XAI pipeline</span>
+                            <span class="verified__evidence-item">🗄️ SQLite WAL tuning, LRU caching, multiprocessing</span>
+                        </div>
+                        <div class="verified__project-tech">
+                            <span class="badge badge--green">Python 3.10+</span>
+                            <span class="badge badge--cyan">PyTorch</span>
+                            <span class="badge badge--purple">SQLite</span>
+                        </div>
+                        <a href="repositories/solo-exploration-lab.html" target="_blank" class="verified__project-link">GitHub →</a>
+                    </div>
+
+                    <div class="verified__project" data-hover-glow>
+                        <div class="verified__project-badge">✓ Verified</div>
+                        <h3 class="verified__project-title">AURA-Audio-Player</h3>
+                        <p class="verified__project-role">Full Author</p>
+                        <div class="verified__project-evidence">
+                            <span class="verified__evidence-item">💾 Multiple commits (Dec 2025 → Jun 2026)</span>
+                            <span class="verified__evidence-item">🔊 Aftershock.py, WAVEMIND.py DSP engines</span>
+                            <span class="verified__evidence-item">🎚️ 70+ effect presets, dual-deck mixer</span>
+                            <span class="verified__evidence-item">🌐 Streaming server + Cloudflare tunnel support</span>
+                        </div>
+                        <div class="verified__project-tech">
+                            <span class="badge badge--green">Python</span>
+                            <span class="badge badge--cyan">PyQt6</span>
+                            <span class="badge badge--purple">NumPy</span>
+                        </div>
+                        <a href="repositories/aura-audio-player.html" target="_blank" class="verified__project-link">GitHub →</a>
+                    </div>
+
+                    <div class="verified__project" data-hover-glow>
+                        <div class="verified__project-badge">✓ Verified</div>
+                        <h3 class="verified__project-title">OrbitalOps-RL</h3>
+                        <p class="verified__project-role">Environment Design & Packaging</p>
+                        <div class="verified__project-evidence">
+                            <span class="verified__evidence-item">🤖 Gymnasium environment with 16+ mission scenarios</span>
+                            <span class="verified__evidence-item">📡 FastAPI backend + Gradio UI integration</span>
+                            <span class="verified__evidence-item">🐳 Docker validation & containerization</span>
+                            <span class="verified__evidence-item">🔗 Live Hugging Face demo + MIT license</span>
+                        </div>
+                        <div class="verified__project-tech">
+                            <span class="badge badge--green">Python</span>
+                            <span class="badge badge--cyan">Gymnasium</span>
+                            <span class="badge badge--purple">FastAPI</span>
+                        </div>
+                        <a href="repositories/orbitalops-rl.html" target="_blank" class="verified__project-link">GitHub →</a>
+                    </div>
+
+                    <div class="verified__project" data-hover-glow>
+                        <div class="verified__project-badge">✓ Verified</div>
+                        <h3 class="verified__project-title">SynapseOS</h3>
+                        <p class="verified__project-role">Architecture & Implementation</p>
+                        <div class="verified__project-evidence">
+                            <span class="verified__evidence-item">🏗️ TypeScript monorepo with Docker Compose</span>
+                            <span class="verified__evidence-item">📦 Express API + React dashboard orchestration</span>
+                            <span class="verified__evidence-item">💾 SQLite persistence, real-time sync</span>
+                            <span class="verified__evidence-item">🎛️ Container-native multi-agent runtime</span>
+                        </div>
+                        <div class="verified__project-tech">
+                            <span class="badge badge--green">TypeScript</span>
+                            <span class="badge badge--cyan">Docker</span>
+                            <span class="badge badge--purple">React</span>
+                        </div>
+                        <a href="repositories/synapseos.html" target="_blank" class="verified__project-link">GitHub →</a>
+                    </div>
+
+                    <div class="verified__project" data-hover-glow>
+                        <div class="verified__project-badge">✓ Verified</div>
+                        <h3 class="verified__project-title">Project Celestia (GPIP)</h3>
+                        <p class="verified__project-role">Full-Stack Developer</p>
+                        <div class="verified__project-evidence">
+                            <span class="verified__evidence-item">⚡ React/TypeScript frontend with Vite</span>
+                            <span class="verified__evidence-item">📊 Offline-first progression graphs & optimization</span>
+                            <span class="verified__evidence-item">🗃️ Node.js/SQLite backend synchronization</span>
+                            <span class="verified__evidence-item">🔗 Live demo + license commits (May 2026)</span>
+                        </div>
+                        <div class="verified__project-tech">
+                            <span class="badge badge--green">TypeScript</span>
+                            <span class="badge badge--cyan">React</span>
+                            <span class="badge badge--purple">Vite</span>
+                        </div>
+                        <a href="repositories/gpip-genshin-planner.html" target="_blank" class="verified__project-link">GitHub →</a>
+                    </div>
+
+                    <div class="verified__project" data-hover-glow>
+                        <div class="verified__project-badge">✓ Verified</div>
+                        <h3 class="verified__project-title">Neon Wavefall</h3>
+                        <p class="verified__project-role">Full Author</p>
+                        <div class="verified__project-evidence">
+                            <span class="verified__evidence-item">🌊 Real-time audio capture & LAN broadcasting</span>
+                            <span class="verified__evidence-item">🖥️ Browser clients + central control panel</span>
+                            <span class="verified__evidence-item">🎨 Custom waveform canvas rendering</span>
+                            <span class="verified__evidence-item">📋 Authored README with architecture & screenshots</span>
+                        </div>
+                        <div class="verified__project-tech">
+                            <span class="badge badge--green">Python</span>
+                            <span class="badge badge--cyan">PyQt6</span>
+                            <span class="badge badge--purple">Audio Systems</span>
+                        </div>
+                        <a href="repositories/neon-wavefall.html" target="_blank" class="verified__project-link">GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="verified__summary" data-reveal>
+                    <h3>Verification Methodology</h3>
+                    <p>Each project was audited for: (1) commit authorship under your GitHub account, (2) authored or substantially contributed README, (3) documented file structure and run commands, (4) deployment/demo evidence where applicable. Projects marked "Verified" have been cross-referenced against commit history and README content.</p>
+                </div>
+            </div>
+        </section>
+
+<section class="dossier" id="dossier"><div class="section__container"><div class="section__header"><span class="section__index">07</span><h2 class="section__title">Complete GitHub Profile · 44 Repositories</h2><div class="section__line"></div></div><ul class="repo-list"><li><a href="repositories/opencode-test-app.html" target="_blank" rel="noopener">opencode-test-app-</a></li><li><a href="repositories/veyron-skill-and-mcp-pack.html" target="_blank" rel="noopener">veyron-skill-and-mcp-pack</a></li><li><a href="repositories/veyron-ai.html" target="_blank" rel="noopener">veyron-ai-</a></li><li><a href="repositories/veyron-data.html" target="_blank" rel="noopener">veyron-data-</a></li><li><a href="repositories/veyron.html" target="_blank" rel="noopener">veyron</a></li><li><a href="repositories/test-llm-trianer.html" target="_blank" rel="noopener">test-llm-trianer</a></li><li><a href="repositories/daata.html" target="_blank" rel="noopener">daata</a></li><li><a href="repositories/da.html" target="_blank" rel="noopener">da</a></li><li><a href="repositories/opencode-mcp-and-ecosystem.html" target="_blank" rel="noopener">opencode-mcp-and-ecosystem</a></li><li><a href="repositories/opencode-addons.html" target="_blank" rel="noopener">opencode-addons</a></li><li><a href="repositories/olcap-open-local-capability-automation-platform.html" target="_blank" rel="noopener">OLCAP-Open-Local-Capability-Automation-Platform</a></li><li><a href="repositories/multimodal-windows-control.html" target="_blank" rel="noopener">multimodal-windows-control</a></li><li><a href="repositories/ed-loadout-intelligence.html" target="_blank" rel="noopener">ED-Loadout-Intelligence</a></li><li><a href="repositories/void-shipyard.html" target="_blank" rel="noopener">void-shipyard</a></li><li><a href="repositories/career-tech-roadmap.html" target="_blank" rel="noopener">career-tech-roadmap</a></li><li><a href="repositories/gesture-os.html" target="_blank" rel="noopener">Gesture-OS</a></li><li><a href="repositories/rasoi-recipe-assistant.html" target="_blank" rel="noopener">rasoi_-recipe-assistant</a></li><li><a href="repositories/se-ed-galactic-bridge.html" target="_blank" rel="noopener">se-ed-galactic-bridge</a></li><li><a href="repositories/project-dna.html" target="_blank" rel="noopener">Project-DNA</a></li><li><a href="repositories/genesiskit.html" target="_blank" rel="noopener">GenesisKit</a></li><li><a href="repositories/custom-reserch-tool.html" target="_blank" rel="noopener">custom-reserch-tool-</a></li><li><a href="repositories/project-polaris.html" target="_blank" rel="noopener">Project-Polaris</a></li><li><a href="repositories/mock-location-pro.html" target="_blank" rel="noopener">Mock-location-pro</a></li><li><a href="repositories/fathers-day-legacy.html" target="_blank" rel="noopener">fathers-day-legacy</a></li><li><a href="repositories/portfolio.html" target="_blank" rel="noopener">portfolio</a></li><li><a href="repositories/osu-progreesion-system.html" target="_blank" rel="noopener">osu_progreesion_system</a></li><li><a href="repositories/gpip-genshin-planner.html" target="_blank" rel="noopener">gpip-genshin-planner</a></li><li><a href="repositories/synapseos.html" target="_blank" rel="noopener">SynapseOS</a></li><li><a href="repositories/silexis-os.html" target="_blank" rel="noopener">silexis-os</a></li><li><a href="repositories/solo-exploration-lab.html" target="_blank" rel="noopener">Solo-Exploration-Lab</a></li><li><a href="repositories/orbitalops-rl.html" target="_blank" rel="noopener">OrbitalOps-RL</a></li><li><a href="repositories/stock-ml-arima-suite.html" target="_blank" rel="noopener">stock-ml-arima-suite</a></li><li><a href="repositories/neon-wavefall.html" target="_blank" rel="noopener">neon-wavefall</a></li><li><a href="repositories/aura-audio-player.html" target="_blank" rel="noopener">AURA-Audio-Player</a></li><li><a href="repositories/polylingua-hub.html" target="_blank" rel="noopener">PolyLingua-Hub</a></li><li><a href="repositories/global-codex.html" target="_blank" rel="noopener">Global-Codex</a></li><li><a href="repositories/grimoirex.html" target="_blank" rel="noopener">GrimoireX</a></li><li><a href="repositories/persnol-database-kinda.html" target="_blank" rel="noopener">persnol_database_kinda</a></li><li><a href="repositories/website-related-stuff.html" target="_blank" rel="noopener">website_related_stuff</a></li><li><a href="repositories/system-utilities.html" target="_blank" rel="noopener">system_utilities</a></li><li><a href="repositories/software-builder.html" target="_blank" rel="noopener">software_builder</a></li><li><a href="repositories/languages-components.html" target="_blank" rel="noopener">languages_components</a></li><li><a href="repositories/stuff-generator.html" target="_blank" rel="noopener">stuff-generator</a></li><li><a href="repositories/music-organizer.html" target="_blank" rel="noopener">music-organizer</a></li></ul></div></section>
+        <!-- CONTACT -->
+        <section class="contact" id="contact">
+            <div class="section__container">
+                <div class="section__header" data-reveal>
+                    <span class="section__index">06</span>
+                    <h2 class="section__title">Initialize Connection</h2>
+                    <div class="section__line"></div>
+                </div>
+                <div class="contact__terminal" data-reveal>
+                    <div class="terminal__header">
+                        <div class="terminal__dots">
+                            <span class="terminal__dot terminal__dot--red"></span>
+                            <span class="terminal__dot terminal__dot--yellow"></span>
+                            <span class="terminal__dot terminal__dot--green"></span>
+                        </div>
+                        <span class="terminal__title">contact@samraddha — zsh</span>
+                    </div>
+                    <div class="terminal__body">
+                        <div class="terminal__line">
+                            <span class="terminal__prompt">$</span>
+                            <span class="terminal__command" id="terminal-text"></span>
+                            <span class="terminal__cursor">▊</span>
+                        </div>
+                        <div class="terminal__output" id="terminal-output">
+                            <div class="terminal__output-line">
+                                <span class="terminal__label">STATUS</span>
+                                <span class="terminal__value terminal__value--green">Available for collaboration</span>
+                            </div>
+                            <div class="terminal__output-line">
+                                <span class="terminal__label">GITHUB</span>
+                                <a href="https://github.com/SAMRADDHASHRIVASTAVATECH" target="_blank" rel="noopener noreferrer" class="terminal__link" data-cursor-hover>github.com/SAMRADDHASHRIVASTAVATECH</a>
+                            </div>
+                            <div class="terminal__output-line">
+                                <span class="terminal__label">EMAIL</span>
+                                <a href="mailto:samrdev2@gmail.com" class="terminal__link" data-cursor-hover>samrdev2@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact__links" data-reveal>
+                    <a href="https://github.com/SAMRADDHASHRIVASTAVATECH" target="_blank" rel="noopener noreferrer" class="contact__link" data-magnetic data-cursor-hover>
+                        <span class="contact__link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        </span>
+                        <span class="contact__link-text">GitHub</span>
+                        <span class="contact__link-arrow">↗</span>
+                    </a>
+                    <a href="mailto:samrdev2@gmail.com" class="contact__link" data-magnetic data-cursor-hover>
+                        <span class="contact__link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </span>
+                        <span class="contact__link-text">Email</span>
+                        <span class="contact__link-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__text">
+                <span class="footer__brackets">[</span>
+                Designed & Built by Samraddha Shrivastava
+                <span class="footer__brackets">]</span>
+            </p>
+            <p class="footer__subtext">Evidence-based. Production-ready. Always shipping.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
